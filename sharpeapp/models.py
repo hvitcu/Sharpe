@@ -24,7 +24,6 @@ class Sharpe(models.Model):
     benchmark = models.CharField( default= 'SPY', max_length=4, choices = benchmarkList )
     
     def risk_free_rate(self):
-        #('^TNX', 'yahoo', self.startDate, self.endDate)
         self.tenYearNoteYield = sharpe_helper.getTenYearNoteYield(self.startDate, self.endDate)
         
         return self.tenYearNoteYield
